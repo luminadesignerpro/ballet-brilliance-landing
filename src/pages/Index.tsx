@@ -357,7 +357,7 @@ export default function DaraRochaBalletPage() {
       </Sec>
 
       {/* ═══ TURMAS ═══ */}
-      <Sec id="turmas" className="py-20 px-6 bg-card">
+      <Sec id="turmas" className="py-24 px-6 bg-card">
         <div className="max-w-[960px] mx-auto">
           <motion.p variants={fadeUp}
             className="text-[11px] font-semibold tracking-[0.28em] uppercase text-coral text-center mb-2">
