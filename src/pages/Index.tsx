@@ -400,7 +400,7 @@ export default function DaraRochaBalletPage() {
       </Sec>
 
       {/* ═══ DEPOIMENTOS ═══ */}
-      <Sec className="py-24 px-6">
+      <Sec id="depoimentos" className="py-24 px-6">
         <div className="max-w-[1060px] mx-auto">
           <motion.div variants={fadeUp} className="flex items-center justify-center gap-2 mb-3">
             <img src="https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png" alt="Google" className="w-5 h-5" />
