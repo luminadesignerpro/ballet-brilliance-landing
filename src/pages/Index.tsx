@@ -393,37 +393,68 @@ export default function DaraRochaBalletPage() {
       </Sec>
 
       {/* ═══ DEPOIMENTOS ═══ */}
-      <Sec className="py-20 px-6">
-        <div className="max-w-[960px] mx-auto">
-          <motion.p variants={fadeUp}
-            className="text-[11px] font-semibold tracking-[0.28em] uppercase text-coral text-center mb-2">
-            O que as mães dizem
-          </motion.p>
+      <Sec className="py-24 px-6">
+        <div className="max-w-[1060px] mx-auto">
+          <motion.div variants={fadeUp} className="flex items-center justify-center gap-2 mb-3">
+            <img src="https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png" alt="Google" className="w-5 h-5" />
+            <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-muted-foreground">Avaliações no Google</span>
+          </motion.div>
+          <motion.div variants={fadeUp} className="flex items-center justify-center gap-1 mb-3">
+            {Array(5).fill(0).map((_, k) =>
+              <Star key={k} size={18} fill="#FBBC04" className="text-[#FBBC04]" />
+            )}
+            <span className="ml-2 text-sm font-semibold text-foreground">5.0</span>
+          </motion.div>
           <motion.h2 variants={fadeUp}
-            className="font-serif text-foreground text-center mb-14"
+            className="font-serif text-foreground text-center mb-16"
             style={{ fontSize: "clamp(28px, 5vw, 42px)" }}>
-            Histórias reais de transformação
+            O que dizem sobre nós
           </motion.h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {depoimentos.map((d, i) => (
-              <motion.div key={d.mae} variants={fadeUp} custom={i}
-                className="lift bg-card rounded-3xl p-7 shadow-[var(--shadow-card)] border border-coral/10 flex flex-col gap-3">
-                <div className="flex gap-0.5">
-                  {Array(5).fill(0).map((_, k) =>
-                    <Star key={k} size={13} fill="hsl(var(--coral))" className="text-coral" />
-                  )}
+            {depoimentos.slice(0, 6).map((d, i) => (
+              <motion.div key={d.nome} variants={fadeUp} custom={i}
+                className="lift bg-card rounded-2xl p-7 shadow-[var(--shadow-card)] border border-border flex flex-col gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-coral/10 flex items-center justify-center text-coral font-semibold text-sm shrink-0">
+                    {d.nome.charAt(0)}
+                  </div>
+                  <div>
+                    <p className="font-semibold text-sm text-foreground leading-tight">{d.nome}</p>
+                    <div className="flex gap-0.5 mt-0.5">
+                      {Array(5).fill(0).map((_, k) =>
+                        <Star key={k} size={11} fill="#FBBC04" className="text-[#FBBC04]" />
+                      )}
+                    </div>
+                  </div>
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed italic">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   &ldquo;{d.texto}&rdquo;
                 </p>
-                <div className="border-t border-coral/10 pt-3 mt-auto">
-                  <p className="font-semibold text-sm text-foreground">{d.mae}</p>
-                  <p className="text-xs text-coral mt-0.5">{d.filha}</p>
-                </div>
               </motion.div>
             ))}
           </div>
+
+          {/* 7th review featured */}
+          <motion.div variants={fadeUp} custom={6}
+            className="mt-6 bg-card rounded-2xl p-8 shadow-[var(--shadow-card)] border border-border max-w-[640px] mx-auto flex flex-col gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-mint/15 flex items-center justify-center text-mint font-semibold text-sm shrink-0">
+                {depoimentos[6].nome.charAt(0)}
+              </div>
+              <div>
+                <p className="font-semibold text-sm text-foreground leading-tight">{depoimentos[6].nome}</p>
+                <div className="flex gap-0.5 mt-0.5">
+                  {Array(5).fill(0).map((_, k) =>
+                    <Star key={k} size={11} fill="#FBBC04" className="text-[#FBBC04]" />
+                  )}
+                </div>
+              </div>
+            </div>
+            <p className="text-[15px] text-muted-foreground leading-relaxed italic">
+              &ldquo;{depoimentos[6].texto}&rdquo;
+            </p>
+          </motion.div>
         </div>
       </Sec>
 
