@@ -76,25 +76,25 @@ const diferenciais = [
 const turmas = [
   {
     faixa: "3 – 6 anos", nome: "Pré-Ballet",
-    horario: "Seg e Qua · 15h", vagas: "Últimas vagas",
+    horario: "Ter e Qui · 18h", vagas: "Últimas vagas",
     desc: "Introdução lúdica ao movimento, coordenação motora e ritmo. Aulas com música, histórias e brincadeiras.",
     cardBg: "bg-coral-light", accentClass: "text-coral", borderAccent: "border-coral/20",
   },
   {
     faixa: "7 – 10 anos", nome: "Ballet Infantil",
-    horario: "Ter e Qui · 16h", vagas: "5 vagas",
+    horario: "Ter e Qui · 18h30", vagas: "5 vagas",
     desc: "Técnica clássica, postura e vocabulário do ballet. Equilíbrio entre rigor técnico e leveza.",
     cardBg: "bg-mint-light", accentClass: "text-mint", borderAccent: "border-mint/20",
   },
   {
     faixa: "11 – 15 anos", nome: "Ballet Juvenil",
-    horario: "Seg, Qua e Sex · 18h", vagas: "Turma avançada",
+    horario: "Ter e Qui · 19h30", vagas: "Turma avançada",
     desc: "Aperfeiçoamento técnico, expressividade artística e preparação para apresentações.",
     cardBg: "bg-brand-gray-light", accentClass: "text-brand-gray", borderAccent: "border-brand-gray/10",
   },
   {
     faixa: "Adultos", nome: "Ballet Adulto",
-    horario: "Sábado · 09h", vagas: "Turma aberta",
+    horario: "Ter e Qui · 20h30", vagas: "Turma aberta",
     desc: "Nunca é tarde para começar. Aulas voltadas para iniciantes e intermediários adultos.",
     cardBg: "bg-coral-light", accentClass: "text-coral", borderAccent: "border-coral/20",
   },
@@ -169,7 +169,7 @@ function LeadForm() {
           {[
             { label: "Nome da Mãe / Responsável", name: "mae", type: "text", ph: "Seu nome completo" },
             { label: "Nome da Criança", name: "crianca", type: "text", ph: "Nome da sua filha(o)" },
-            { label: "WhatsApp", name: "whatsapp", type: "tel", ph: "(11) 99999-9999" },
+            { label: "WhatsApp", name: "whatsapp", type: "tel", ph: "(85) 98203-1932" },
           ].map(f => (
             <motion.div key={f.name} variants={fadeUp}>
               <label className="block mb-1.5 text-[11px] font-semibold tracking-[0.18em] uppercase text-muted-foreground">
@@ -227,7 +227,6 @@ export default function DaraRochaBalletPage() {
           <DaraLogo size={32} />
         </div>
         <div className="hidden md:flex items-center gap-8">
-          {[[
           {[["Diferenciais", "#diferenciais"], ["Turmas", "#turmas"], ["Depoimentos", "#depoimentos"]].map(([label, href]) => (
             <a key={label} href={href} className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors no-underline tracking-wide uppercase">
               {label}
@@ -256,12 +255,12 @@ export default function DaraRochaBalletPage() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="relative mb-6" style={{ animation: "floatY 5s ease-in-out infinite" }}>
-          <DaraLogo size={120} />
+          <DaraLogo size={140} />
         </motion.div>
 
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
           className="relative text-[11px] font-semibold tracking-[0.30em] uppercase text-coral mb-4">
-          Escola de Ballet · São Paulo
+          Escola de Ballet · Itaitinga, CE
         </motion.p>
 
         <motion.h1 className="relative font-serif text-foreground leading-[1.1] max-w-[700px] mx-auto mb-1"
@@ -384,146 +383,115 @@ export default function DaraRochaBalletPage() {
       <Sec id="depoimentos" className="py-24 px-6">
         <div className="max-w-[1060px] mx-auto">
           <motion.div variants={fadeUp} className="flex items-center justify-center gap-2 mb-3">
-            <img src="https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png" alt="Google" className="w-5 h-5" />
-            <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-muted-foreground">Avaliações no Google</span>
-          </motion.div>
-          <motion.div variants={fadeUp} className="flex items-center justify-center gap-1 mb-3">
-            {Array(5).fill(0).map((_, k) =>
-              <Star key={k} size={18} fill="#FBBC04" className="text-[#FBBC04]" />
-            )}
-            <span className="ml-2 text-sm font-semibold text-foreground">5.0</span>
+            <Star size={16} strokeWidth={2} className="text-coral" />
+            <span className="text-[11px] font-bold tracking-[0.24em] uppercase text-coral">5.0 no Google</span>
           </motion.div>
           <motion.h2 variants={fadeUp}
-            className="font-serif text-foreground text-center mb-16"
-            style={{ fontSize: "clamp(28px, 5vw, 42px)" }}>
-            O que dizem sobre nós
+            className="font-serif text-foreground text-center mb-4"
+            style={{ fontSize: "clamp(30px, 5vw, 46px)" }}>
+            O que dizem nossas famílias
           </motion.h2>
+          <motion.div variants={fadeUp} className="flex items-center justify-center gap-1 text-muted-foreground text-sm mb-14">
+            <span className="text-coral">★★★★★</span> · {depoimentos.length} avaliações
+          </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {depoimentos.slice(0, 6).map((d, i) => (
+            {depoimentos.map((d, i) => (
               <motion.div key={d.nome} variants={fadeUp} custom={i}
-                className="lift bg-card rounded-2xl p-7 shadow-[var(--shadow-card)] border border-border flex flex-col gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-coral/10 flex items-center justify-center text-coral font-semibold text-sm shrink-0">
+                className="bg-card p-7 rounded-2xl border border-border/50 shadow-[var(--shadow-card)] flex flex-col">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-coral/10 flex items-center justify-center text-coral font-serif text-base">
                     {d.nome.charAt(0)}
                   </div>
                   <div>
-                    <p className="font-semibold text-sm text-foreground leading-tight">{d.nome}</p>
-                    <div className="flex gap-0.5 mt-0.5">
-                      {Array(5).fill(0).map((_, k) =>
-                        <Star key={k} size={11} fill="#FBBC04" className="text-[#FBBC04]" />
-                      )}
+                    <p className="font-semibold text-sm text-foreground">{d.nome}</p>
+                    <div className="flex gap-0.5">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} size={10} fill="#D4735A" strokeWidth={0} className="text-coral" />
+                      ))}
                     </div>
                   </div>
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  &ldquo;{d.texto}&rdquo;
-                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed flex-1">"{d.texto}"</p>
               </motion.div>
             ))}
           </div>
 
-          {/* 7th review featured */}
-          <motion.div variants={fadeUp} custom={6}
-            className="mt-6 bg-card rounded-2xl p-8 shadow-[var(--shadow-card)] border border-border max-w-[640px] mx-auto flex flex-col gap-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-mint/15 flex items-center justify-center text-mint font-semibold text-sm shrink-0">
-                {depoimentos[6].nome.charAt(0)}
-              </div>
-              <div>
-                <p className="font-semibold text-sm text-foreground leading-tight">{depoimentos[6].nome}</p>
-                <div className="flex gap-0.5 mt-0.5">
-                  {Array(5).fill(0).map((_, k) =>
-                    <Star key={k} size={11} fill="#FBBC04" className="text-[#FBBC04]" />
-                  )}
-                </div>
-              </div>
-            </div>
-            <p className="text-[15px] text-muted-foreground leading-relaxed italic">
-              &ldquo;{depoimentos[6].texto}&rdquo;
-            </p>
+          <motion.div variants={fadeUp} className="text-center mt-12">
+            <a href="https://g.co/kgs/abc123" target="_blank" rel="noopener"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors no-underline">
+              <img src="https://www.google.com/favicon.ico" alt="" width={16} height={16} className="opacity-80" />
+              Ver mais avaliações no Google
+            </a>
           </motion.div>
         </div>
       </Sec>
 
-      {/* ═══ FORMULÁRIO ═══ */}
-      <Sec id="agendar" className="py-20 px-6 bg-card">
-        <div className="max-w-[520px] mx-auto">
-          <motion.div variants={fadeUp} className="text-center mb-11">
-            <div className="flex justify-center mb-4">
-              <DaraLogo size={72} />
-            </div>
-            <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-coral mb-2">
-              Sem compromisso
-            </p>
-            <h2 className="font-serif text-foreground mb-3"
-              style={{ fontSize: "clamp(28px, 5vw, 44px)" }}>
-              Aula Experimental Gratuita
-            </h2>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Preencha abaixo. Entraremos em contato pelo WhatsApp para confirmar horário e turma.
-            </p>
-          </motion.div>
+      {/* ═══ FORM ═══ */}
+      <Sec id="agendar" className="py-24 px-6 bg-card">
+        <div className="max-w-[560px] mx-auto">
+          <motion.p variants={fadeUp}
+            className="text-[11px] font-semibold tracking-[0.28em] uppercase text-coral text-center mb-2">
+            Aula experimental gratuita
+          </motion.p>
+          <motion.h2 variants={fadeUp}
+            className="font-serif text-foreground text-center mb-3"
+            style={{ fontSize: "clamp(30px, 5vw, 46px)" }}>
+            Agende sua primeira aula
+          </motion.h2>
+          <motion.p variants={fadeUp} className="text-center text-muted-foreground text-sm mb-10 max-w-[420px] mx-auto">
+            Preencha abaixo e entraremos em contato em até 2 horas para confirmar seu horário.
+          </motion.p>
 
-          <motion.div variants={fadeUp}
-            className="bg-brand-cream rounded-3xl p-8 md:p-10 shadow-[0_6px_40px_hsl(var(--coral)/0.1)] border-[1.5px] border-coral/10">
+          <motion.div variants={fadeUp} className="bg-background p-8 md:p-10 rounded-3xl shadow-[var(--shadow-card)] border border-border/40">
             <LeadForm />
           </motion.div>
         </div>
       </Sec>
 
       {/* ═══ FOOTER ═══ */}
-      <footer className="bg-foreground text-primary-foreground px-6 pt-16 pb-8">
-        <div className="max-w-[960px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-11">
-          <div>
-            <DaraLogo size={56} />
-            <p className="text-sm text-primary-foreground/50 leading-relaxed mt-3">
-              Formando bailarinas com amor,<br />técnica e dedicação desde 2015.
+      <footer className="py-16 px-6 bg-muted/30 border-t border-border/50">
+        <div className="max-w-[960px] mx-auto grid grid-cols-1 sm:grid-cols-3 gap-10 text-center sm:text-left">
+          <div className="flex flex-col items-center sm:items-start gap-3">
+            <DaraLogo size={50} />
+            <p className="text-xs text-muted-foreground leading-relaxed max-w-[240px]">
+              Ballet clássico para crianças, adolescentes e adultos em Itaitinga-CE.
             </p>
           </div>
-
           <div className="flex flex-col gap-3">
-            <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-coral mb-0.5">
-              Contato
-            </p>
-            {[
-              { icon: Phone, label: "(11) 99999-9999", href: "tel:+5511999999999" },
-              { icon: Instagram, label: "@balletdararocha", href: "https://www.instagram.com/balletdararocha/" },
-              { icon: MapPin, label: "São Paulo, SP", href: "#" },
-            ].map(c => (
-              <a key={c.label} href={c.href}
-                target={c.href.startsWith("http") ? "_blank" : undefined}
-                rel="noopener noreferrer"
-                className="flex items-center gap-2.5 text-primary-foreground/60 text-sm no-underline hover:text-primary-foreground/80 transition-colors">
-                <c.icon size={14} strokeWidth={1.5} className="text-coral" />
-                {c.label}
+            <p className="text-[11px] font-bold tracking-[0.16em] uppercase text-muted-foreground mb-1">Contato</p>
+            <div className="flex flex-col gap-2">
+              <a href="https://wa.me/5585982031932" className="flex items-center justify-center sm:justify-start gap-2 text-sm text-foreground hover:text-coral transition-colors no-underline">
+                <Phone size={14} /> (85) 98203-1932
               </a>
-            ))}
-          </div>
-
-          <div className="flex flex-col gap-2.5">
-            <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-coral mb-0.5">
-              Horários
-            </p>
-            {[
-              ["Seg e Qua", "15h · 18h"],
-              ["Ter e Qui", "16h"],
-              ["Sexta", "18h"],
-              ["Sábado", "09h – 12h"],
-            ].map(([d, h]) => (
-              <div key={d} className="flex justify-between text-xs pb-2 border-b border-primary-foreground/5">
-                <span className="text-primary-foreground/40">{d}</span>
-                <span className="text-primary-foreground/60 font-semibold">{h}</span>
+              <div className="flex items-center justify-center sm:justify-start gap-2 text-sm text-muted-foreground">
+                <MapPin size={14} /> R. José Matias de Morais
               </div>
-            ))}
+              <div className="text-sm text-muted-foreground ml-6">
+                Itaitinga - CE, 61887-464
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col gap-3 items-center sm:items-start">
+            <p className="text-[11px] font-bold tracking-[0.16em] uppercase text-muted-foreground mb-1">Horário</p>
+            <p className="text-sm text-muted-foreground">Terça e Quinta</p>
+            <p className="font-serif text-[28px] text-coral">18h – 21h</p>
+            <div className="flex gap-3 mt-1">
+              <a href="https://instagram.com/balletdararocha" target="_blank" rel="noopener"
+                className="w-10 h-10 rounded-full border border-border/60 flex items-center justify-center text-muted-foreground hover:text-coral hover:border-coral/30 transition-colors no-underline">
+                <Instagram size={18} />
+              </a>
+              <a href="https://wa.me/5585982031932" target="_blank" rel="noopener"
+                className="w-10 h-10 rounded-full border border-border/60 flex items-center justify-center text-muted-foreground hover:text-coral hover:border-coral/30 transition-colors no-underline">
+                <Phone size={18} />
+              </a>
+            </div>
           </div>
         </div>
-
-        <div className="max-w-[960px] mx-auto mt-10 border-t border-primary-foreground/5 pt-6 flex justify-between items-center flex-wrap gap-3">
-          <p className="text-[11px] text-primary-foreground/30">
-            © {new Date().getFullYear()} Dara Rocha Ballet · Todos os direitos reservados.
+        <div className="max-w-[960px] mx-auto mt-12 pt-6 border-t border-border/40 text-center">
+          <p className="text-xs text-muted-foreground">
+            © 2025 Ballet Dara Rocha · Itaitinga, CE
           </p>
-          <Swirl className="w-28 opacity-20" />
         </div>
       </footer>
     </main>
