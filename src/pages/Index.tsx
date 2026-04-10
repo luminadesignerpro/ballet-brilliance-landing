@@ -329,7 +329,7 @@ export default function DaraRochaBalletPage() {
       </section>
 
       {/* ═══ DIFERENCIAIS ═══ */}
-      <Sec className="py-20 px-6">
+      <Sec id="diferenciais" className="py-24 px-6">
         <div className="max-w-[960px] mx-auto">
           <motion.p variants={fadeUp}
             className="text-[11px] font-semibold tracking-[0.28em] uppercase text-coral text-center mb-2">
