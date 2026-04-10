@@ -6,6 +6,7 @@ import {
   CheckCircle, Star, Clock, Users,
 } from "lucide-react";
 import heroImage from "@/assets/hero-ballet.jpg";
+import logoReal from "@/assets/logo-ballet-dara-rocha.webp";
 
 /* ═══════ MOTION HELPERS ═══════ */
 const fadeUp = {
@@ -31,34 +32,16 @@ function Sec({ children, className = "", id = "" }: {
   );
 }
 
-/* ═══════ SVG LOGO ═══════ */
+/* ═══════ LOGO REAL ═══════ */
 function DaraLogo({ size = 80 }: { size?: number }) {
-  const coral = "#D4735A";
-  const mint = "#7AB89A";
-  const gray = "#3D3D3D";
-  const grayMid = "#7C7872";
   return (
-    <svg width={size} height={size * 1.15} viewBox="0 0 110 126" fill="none"
-      xmlns="http://www.w3.org/2000/svg" aria-label="Dara Rocha Ballet logo">
-      <circle cx="55" cy="46" r="31" stroke={coral} strokeWidth="1.4" fill="none" opacity="0.4"
-        strokeDasharray="55 140" strokeDashoffset="-30" />
-      <circle cx="55" cy="46" r="31" stroke={mint} strokeWidth="1.4" fill="none" opacity="0.35"
-        strokeDasharray="55 140" strokeDashoffset="60" />
-      <circle cx="55" cy="20" r="5.5" fill={gray} opacity="0.72" />
-      <path d="M55 26 L55 58" stroke={gray} strokeWidth="2" strokeLinecap="round" opacity="0.72" />
-      <path d="M47 50 Q44 62 40 68 M55 55 L55 68 M63 50 Q66 62 70 68"
-        stroke={coral} strokeWidth="1.5" strokeLinecap="round" opacity="0.75" />
-      <path d="M55 34 L44 26 M55 34 L66 26" stroke={gray} strokeWidth="1.8" strokeLinecap="round" opacity="0.7" />
-      <circle cx="43" cy="25" r="2.2" fill={gray} opacity="0.55" />
-      <circle cx="67" cy="25" r="2.2" fill={gray} opacity="0.55" />
-      <path d="M55 68 L52 80 M52 80 L50 84" stroke={gray} strokeWidth="1.8" strokeLinecap="round" opacity="0.6" />
-      <path d="M18 76 Q28 68 38 74 Q48 80 55 74" stroke={coral} strokeWidth="1.1" fill="none" strokeLinecap="round" opacity="0.5" />
-      <path d="M92 76 Q82 68 72 74 Q62 80 55 74" stroke={coral} strokeWidth="1.1" fill="none" strokeLinecap="round" opacity="0.5" />
-      <text x="55" y="96" textAnchor="middle" fontFamily="'Cormorant Garamond',serif"
-        fontSize="8.5" letterSpacing="4.5" fill={grayMid} opacity="0.85">BALLET</text>
-      <text x="55" y="116" textAnchor="middle" fontFamily="'Cormorant Garamond',serif"
-        fontSize="13" fontStyle="italic" fontWeight="300" fill={gray} opacity="0.88" letterSpacing="1">Dara Rocha</text>
-    </svg>
+    <img 
+      src={logoReal} 
+      alt="Ballet Dara Rocha logo" 
+      width={size} 
+      height={size} 
+      className="object-contain"
+    />
   );
 }
 
