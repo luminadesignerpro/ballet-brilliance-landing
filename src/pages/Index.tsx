@@ -119,16 +119,32 @@ const turmas = [
 
 const depoimentos = [
   {
-    mae: "Fernanda S.", filha: "Isabela, 8 anos",
-    texto: "Minha filha amou desde a primeira aula. A postura da Isa melhorou visivelmente e a autoconfiança dela é outra.",
+    nome: "Jeferson Almeida",
+    texto: "Super indico estúdio de ballet super profissional e atenciosos tanto com as bailarinas como com os pais!",
   },
   {
-    mae: "Carolina M.", filha: "Beatriz, 5 anos",
-    texto: "Procurava um ambiente seguro e acolhedor. A Bea chora quando não tem aula — é o maior elogio que posso dar.",
+    nome: "Myria Brandao",
+    texto: "Atendimento maravilhoso, minha filha ama a Tia Dara e a Tia Debora. ❤️",
   },
   {
-    mae: "Renata P.", filha: "Luísa, 13 anos",
-    texto: "A Luísa era tímida. Depois de 6 meses no ballet, ela se apresentou no festival com uma confiança que me emocionou.",
+    nome: "Emanuela Lopes",
+    texto: "Espaço acolhedor, de aprendizado e minha filha ama desde o primeiro dia. Tia Dara é nota 10!",
+  },
+  {
+    nome: "Isa Sousa",
+    texto: "Ótimo atendimento e profissional capacitado, minha filha gosta muito das aulas. 👏🏽",
+  },
+  {
+    nome: "Samia Vasconcelos",
+    texto: "Qualidade top das Galáxias. Esse eu indico e confio!",
+  },
+  {
+    nome: "Bruna Rocha",
+    texto: "Uma profissional de excelência, muito competente e dedicada no que faz!",
+  },
+  {
+    nome: "Vivia Aquino",
+    texto: "Uma Escola que trabalha com honestidade, respeito e muito amor. A professora Dara Rocha é um encanto de pessoa, muito educada e gentil no ato de educar na dança. 🩷🌸",
   },
 ];
 
@@ -223,15 +239,22 @@ export default function DaraRochaBalletPage() {
     <main className="min-h-screen bg-background font-sans text-foreground overflow-x-hidden">
 
       {/* ═══ NAV ═══ */}
-      <nav className="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-5 md:px-7 py-3 bg-background/90 backdrop-blur-md border-b border-coral/10">
+      <nav className="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-6 md:px-10 py-4 bg-card/80 backdrop-blur-xl border-b border-border/60">
         <div className="flex items-center gap-2.5">
-          <DaraLogo size={34} />
-          <span className="font-serif text-xl text-foreground tracking-wide">
-            Dara Rocha <em className="text-coral font-light">Ballet</em>
+          <DaraLogo size={30} />
+          <span className="font-serif text-lg text-foreground tracking-wide">
+            Dara Rocha <em className="text-coral font-light not-italic">Ballet</em>
           </span>
         </div>
+        <div className="hidden md:flex items-center gap-8">
+          {[["Diferenciais", "#diferenciais"], ["Turmas", "#turmas"], ["Depoimentos", "#depoimentos"]].map(([label, href]) => (
+            <a key={label} href={href} className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors no-underline tracking-wide uppercase">
+              {label}
+            </a>
+          ))}
+        </div>
         <a href="#agendar"
-          className="hidden sm:flex items-center gap-2 px-5 py-2.5 rounded-full gradient-cta text-primary-foreground text-xs font-semibold shadow-cta tracking-wide">
+          className="flex items-center gap-2 px-5 py-2.5 rounded-full gradient-cta text-primary-foreground text-xs font-semibold shadow-cta tracking-wide no-underline">
           Aula Gratuita
         </a>
       </nav>
@@ -306,7 +329,7 @@ export default function DaraRochaBalletPage() {
       </section>
 
       {/* ═══ DIFERENCIAIS ═══ */}
-      <Sec className="py-20 px-6">
+      <Sec id="diferenciais" className="py-24 px-6">
         <div className="max-w-[960px] mx-auto">
           <motion.p variants={fadeUp}
             className="text-[11px] font-semibold tracking-[0.28em] uppercase text-coral text-center mb-2">
@@ -321,8 +344,8 @@ export default function DaraRochaBalletPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {diferenciais.map((d, i) => (
               <motion.div key={d.title} variants={fadeUp} custom={i}
-                className="lift bg-card rounded-3xl p-8 shadow-[var(--shadow-card)] border border-coral/10">
-                <div className={`w-14 h-14 rounded-2xl ${d.bg} flex items-center justify-center mb-5`}>
+                className="lift bg-card rounded-2xl p-8 shadow-[var(--shadow-card)] border border-border/60">
+                <div className={`w-12 h-12 rounded-xl ${d.bg} flex items-center justify-center mb-5`}>
                   <d.icon size={22} strokeWidth={1.5} className={d.iconColor} />
                 </div>
                 <h3 className="font-serif text-[23px] text-foreground mb-2">{d.title}</h3>
@@ -334,7 +357,7 @@ export default function DaraRochaBalletPage() {
       </Sec>
 
       {/* ═══ TURMAS ═══ */}
-      <Sec id="turmas" className="py-20 px-6 bg-card">
+      <Sec id="turmas" className="py-24 px-6 bg-card">
         <div className="max-w-[960px] mx-auto">
           <motion.p variants={fadeUp}
             className="text-[11px] font-semibold tracking-[0.28em] uppercase text-coral text-center mb-2">
@@ -377,37 +400,68 @@ export default function DaraRochaBalletPage() {
       </Sec>
 
       {/* ═══ DEPOIMENTOS ═══ */}
-      <Sec className="py-20 px-6">
-        <div className="max-w-[960px] mx-auto">
-          <motion.p variants={fadeUp}
-            className="text-[11px] font-semibold tracking-[0.28em] uppercase text-coral text-center mb-2">
-            O que as mães dizem
-          </motion.p>
+      <Sec id="depoimentos" className="py-24 px-6">
+        <div className="max-w-[1060px] mx-auto">
+          <motion.div variants={fadeUp} className="flex items-center justify-center gap-2 mb-3">
+            <img src="https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png" alt="Google" className="w-5 h-5" />
+            <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-muted-foreground">Avaliações no Google</span>
+          </motion.div>
+          <motion.div variants={fadeUp} className="flex items-center justify-center gap-1 mb-3">
+            {Array(5).fill(0).map((_, k) =>
+              <Star key={k} size={18} fill="#FBBC04" className="text-[#FBBC04]" />
+            )}
+            <span className="ml-2 text-sm font-semibold text-foreground">5.0</span>
+          </motion.div>
           <motion.h2 variants={fadeUp}
-            className="font-serif text-foreground text-center mb-14"
+            className="font-serif text-foreground text-center mb-16"
             style={{ fontSize: "clamp(28px, 5vw, 42px)" }}>
-            Histórias reais de transformação
+            O que dizem sobre nós
           </motion.h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {depoimentos.map((d, i) => (
-              <motion.div key={d.mae} variants={fadeUp} custom={i}
-                className="lift bg-card rounded-3xl p-7 shadow-[var(--shadow-card)] border border-coral/10 flex flex-col gap-3">
-                <div className="flex gap-0.5">
-                  {Array(5).fill(0).map((_, k) =>
-                    <Star key={k} size={13} fill="hsl(var(--coral))" className="text-coral" />
-                  )}
+            {depoimentos.slice(0, 6).map((d, i) => (
+              <motion.div key={d.nome} variants={fadeUp} custom={i}
+                className="lift bg-card rounded-2xl p-7 shadow-[var(--shadow-card)] border border-border flex flex-col gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-coral/10 flex items-center justify-center text-coral font-semibold text-sm shrink-0">
+                    {d.nome.charAt(0)}
+                  </div>
+                  <div>
+                    <p className="font-semibold text-sm text-foreground leading-tight">{d.nome}</p>
+                    <div className="flex gap-0.5 mt-0.5">
+                      {Array(5).fill(0).map((_, k) =>
+                        <Star key={k} size={11} fill="#FBBC04" className="text-[#FBBC04]" />
+                      )}
+                    </div>
+                  </div>
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed italic">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   &ldquo;{d.texto}&rdquo;
                 </p>
-                <div className="border-t border-coral/10 pt-3 mt-auto">
-                  <p className="font-semibold text-sm text-foreground">{d.mae}</p>
-                  <p className="text-xs text-coral mt-0.5">{d.filha}</p>
-                </div>
               </motion.div>
             ))}
           </div>
+
+          {/* 7th review featured */}
+          <motion.div variants={fadeUp} custom={6}
+            className="mt-6 bg-card rounded-2xl p-8 shadow-[var(--shadow-card)] border border-border max-w-[640px] mx-auto flex flex-col gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-mint/15 flex items-center justify-center text-mint font-semibold text-sm shrink-0">
+                {depoimentos[6].nome.charAt(0)}
+              </div>
+              <div>
+                <p className="font-semibold text-sm text-foreground leading-tight">{depoimentos[6].nome}</p>
+                <div className="flex gap-0.5 mt-0.5">
+                  {Array(5).fill(0).map((_, k) =>
+                    <Star key={k} size={11} fill="#FBBC04" className="text-[#FBBC04]" />
+                  )}
+                </div>
+              </div>
+            </div>
+            <p className="text-[15px] text-muted-foreground leading-relaxed italic">
+              &ldquo;{depoimentos[6].texto}&rdquo;
+            </p>
+          </motion.div>
         </div>
       </Sec>
 

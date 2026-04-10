@@ -59,8 +59,8 @@
     /* Gradients */
     --gradient-cta: linear-gradient(135deg, hsl(var(--coral)) 0%, hsl(var(--coral-dark)) 100%);
     --shadow-cta: 0 12px 36px hsl(var(--coral) / 0.27);
-    --shadow-card: 0 2px 18px rgba(0,0,0,0.045);
-    --divider-color: hsl(var(--coral) / 0.15);
+    --shadow-card: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04);
+    --divider-color: hsl(var(--coral) / 0.12);
   }
 
   .dark {
