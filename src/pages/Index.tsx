@@ -119,16 +119,32 @@ const turmas = [
 
 const depoimentos = [
   {
-    mae: "Fernanda S.", filha: "Isabela, 8 anos",
-    texto: "Minha filha amou desde a primeira aula. A postura da Isa melhorou visivelmente e a autoconfiança dela é outra.",
+    nome: "Jeferson Almeida",
+    texto: "Super indico estúdio de ballet super profissional e atenciosos tanto com as bailarinas como com os pais!",
   },
   {
-    mae: "Carolina M.", filha: "Beatriz, 5 anos",
-    texto: "Procurava um ambiente seguro e acolhedor. A Bea chora quando não tem aula — é o maior elogio que posso dar.",
+    nome: "Myria Brandao",
+    texto: "Atendimento maravilhoso, minha filha ama a Tia Dara e a Tia Debora. ❤️",
   },
   {
-    mae: "Renata P.", filha: "Luísa, 13 anos",
-    texto: "A Luísa era tímida. Depois de 6 meses no ballet, ela se apresentou no festival com uma confiança que me emocionou.",
+    nome: "Emanuela Lopes",
+    texto: "Espaço acolhedor, de aprendizado e minha filha ama desde o primeiro dia. Tia Dara é nota 10!",
+  },
+  {
+    nome: "Isa Sousa",
+    texto: "Ótimo atendimento e profissional capacitado, minha filha gosta muito das aulas. 👏🏽",
+  },
+  {
+    nome: "Samia Vasconcelos",
+    texto: "Qualidade top das Galáxias. Esse eu indico e confio!",
+  },
+  {
+    nome: "Bruna Rocha",
+    texto: "Uma profissional de excelência, muito competente e dedicada no que faz!",
+  },
+  {
+    nome: "Vivia Aquino",
+    texto: "Uma Escola que trabalha com honestidade, respeito e muito amor. A professora Dara Rocha é um encanto de pessoa, muito educada e gentil no ato de educar na dança. 🩷🌸",
   },
 ];
 
