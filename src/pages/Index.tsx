@@ -344,8 +344,8 @@ export default function DaraRochaBalletPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {diferenciais.map((d, i) => (
               <motion.div key={d.title} variants={fadeUp} custom={i}
-                className="lift bg-card rounded-3xl p-8 shadow-[var(--shadow-card)] border border-coral/10">
-                <div className={`w-14 h-14 rounded-2xl ${d.bg} flex items-center justify-center mb-5`}>
+                className="lift bg-card rounded-2xl p-8 shadow-[var(--shadow-card)] border border-border/60">
+                <div className={`w-12 h-12 rounded-xl ${d.bg} flex items-center justify-center mb-5`}>
                   <d.icon size={22} strokeWidth={1.5} className={d.iconColor} />
                 </div>
                 <h3 className="font-serif text-[23px] text-foreground mb-2">{d.title}</h3>
