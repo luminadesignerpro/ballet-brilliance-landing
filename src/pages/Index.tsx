@@ -224,12 +224,10 @@ export default function DaraRochaBalletPage() {
       {/* ═══ NAV ═══ */}
       <nav className="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-6 md:px-10 py-4 bg-card/80 backdrop-blur-xl border-b border-border/60">
         <div className="flex items-center gap-2.5">
-          <DaraLogo size={30} />
-          <span className="font-serif text-lg text-foreground tracking-wide">
-            Dara Rocha <em className="text-coral font-light not-italic">Ballet</em>
-          </span>
+          <DaraLogo size={32} />
         </div>
         <div className="hidden md:flex items-center gap-8">
+          {[[
           {[["Diferenciais", "#diferenciais"], ["Turmas", "#turmas"], ["Depoimentos", "#depoimentos"]].map(([label, href]) => (
             <a key={label} href={href} className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors no-underline tracking-wide uppercase">
               {label}
